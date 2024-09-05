@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/nairobi.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.prof {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 0px;
+    background: rgb(0, 0, 0);
+    background-color: rgba(20, 20, 20, 0.5);
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    border-radius: 20px;
+    background: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+}
+.profile-info, .edit-form {
+    display: none;
+}
+.profile-info.active, .edit-form.active {
+    display: block;
+}
+.profile-info p, .edit-form input {
+    margin: 10px 0;
+}
+.edit-form input[type="text"], .edit-form input[type="email"], .edit-form input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ebeaea;
+    border-radius: 15px;
+}
+
+.edit-form #gender {
+    width: calc(100% - 22px);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+    background-color: #ebeaea;
+}
+
+.buttons {
+    text-align: center;
+    cursor: pointer;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.edit {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    width: 200px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #3f87b1, #bd10d4);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+
+.save {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    width: 200px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #3f87b1, #bd10d4);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+
+.cancel {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #fff;
+    width: 200px;
+    background-image: linear-gradient(45deg, #3f87b1, #bd10d4);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+
+.alert {
+    color: red;
+}
+
+.alert-danger {
+    color: red;
+}
+
+.prof .container .alert-success {
+    color: green;
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+    padding-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(161, 143, 122);
+}
+
+.prof .container .alert-error {
+    color: red;
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+    padding-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(161, 143, 122);
+}
+
+.name {
+    display: flex;
+    width: 100%;
+}
+.name1 {
+    display: flex;
+    width: 100%;
+}
+.name2 {
+    display: flex;
+    width: 100%;
+}
+p {
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+/* Responsive styling @media screen size change */
+@media screen and (max-width: 600px) {
+   .name2 {
+    flex-direction: column;
+    width: 100%;
+   }
+
+}

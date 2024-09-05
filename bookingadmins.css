@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+header {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    margin: 0;
+}
+
+.navbar .user-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar .user-info span {
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.navbar .dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+    text-align: center;
+}
+
+.navbar .dropdown a {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown a:hover {
+    background-color: #f5f5f5;
+}
+
+.navbar .dropdown.show {
+    display: block;
+}
+
+main {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: #444;
+    color: #fff;
+    width: 200px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.sidebar .menu-links {
+    list-style-type: none;
+}
+
+.sidebar .menu-links li {
+    margin-bottom: 10px;
+}
+
+.sidebar .menu-links a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #555;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu-links a:hover {
+    background-color: #666;
+}
+
+.sidebar .menu-links a .material-icons {
+    margin-right: 10px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.table-header form {
+    display: flex;
+    align-items: center;
+}
+
+.table-header input {
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.table-header button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#backBtn {
+    margin-left: 10px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container table th,
+.table-container table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-container table th {
+    background-color: #f8f9fa;
+}
+
+.approve-btn,
+.cancel-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.approve-btn {
+    background-color: #007bff;
+    margin-right: 5px;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+}
+.approved {
+    background-color: rgb(30, 216, 30);
+    color: white;
+    border-radius: 17px;   
+    display: inline-block;
+}
+
+.cancelled {
+    background-color: rgb(228, 17, 17);
+    color: white;
+    border-radius: 17px;   
+    display: inline-block;
+}
+ 
+.pending {
+    background-color: rgb(238, 159, 13);
+    color: white;
+    border-radius: 17px;   
+    display: inline-block;
+}
+
+
+/* Pagination Buttons */
+.pagination-controls {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination-controls button {
+    background-color: #007bff; 
+    border: 1px solid #007bff; 
+    color: white; 
+    padding: 10px 20px; 
+    margin: 0 5px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.pagination-controls button:hover {
+    background-color: #0056b3; 
+    border-color: #0056b3; 
+}
+
+.pagination-controls button:disabled {
+    background-color: #e9ecef; 
+    border-color: #dee2e6; 
+    color: #6c757d; 
+    cursor: not-allowed; 
+}
+
+#page-info {
+    font-size: 16px; 
+    line-height: 40px; 
+}
+

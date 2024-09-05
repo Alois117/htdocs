@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="Signup.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+	<div class="main">
+    
+</div>
+   <div class="wrapper">
+    <form id="signup-form" action="Sign up.php" method="POST">
+        <h1>Sign up</h1>
+
+       <div class="input-box">
+            <input type="text" name="Username" id="Username" placeholder="Username" required>
+            <div class="error-message" id="error-Username"></div>
+            <i class='bx bxs-user'></i>
+        </div>
+
+        <div class="input-box">
+            <input type="text" name="Email" id="Email" placeholder="Email" required>
+            <div class="error-message" id="error-Email"></div>
+            <i class='bx bx-envelope'></i>
+        </div>
+
+        <div class="input-box">
+            <select name="role" id="role" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="guest">Guest</option>
+                                
+            </select>
+            <div class="error-message" id="error-role"></div>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="Enter_password" id="Enter_password" placeholder="Enter password" required>
+            <div class="error-message" id="error-Enter_password"></div>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="Confirm_password" id="Confirm_password" placeholder="Confirm password" required>
+            <div class="error-message" id="error-Confirm_password"></div>
+            <i class='bx bxs-lock-alt'></i>
+        </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox" name="RememberMe">Remember Me</label>
+                <a href="#">Forgot Password</a>
+            </div>
+            <button type="submit" class="btn">Sign up</button>
+            <div class="register-link">
+                <p>Already have an account? <a href="Sign in.php">Login</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+   // Function to display or hide error message based on validation result
+function displayError(inputElement, errorMessage) {
+    let errorElementId = "error-" + inputElement.id;
+    let errorElement = document.getElementById(errorElementId);
+    
+    if (errorMessage) {
+        errorElement.textContent = errorMessage;
+        errorElement.style.display = "block";
+        inputElement.classList.add('error');
+    } else {
+        errorElement.textContent = "";
+        errorElement.style.display = "none";
+        inputElement.classList.remove('error');
+    }
+}
+
+// Function to validate username (only letters)
+function validateUsername() {
+    let usernameInput = document.getElementById('Username');
+    let usernameValue = usernameInput.value.trim();
+    let isValid = /^[a-zA-Z]+$/.test(usernameValue);
+    
+    if (!isValid) {
+        displayError(usernameInput, "Username should have only letters");
+    } else {
+        displayError(usernameInput, "");
+    }
+    
+    return isValid;
+}
+
+// Function to validate email (must contain @ symbol)
+function validateEmail() {
+    let emailInput = document.getElementById('Email');
+    let emailValue = emailInput.value.trim();
+    let isValid = emailValue.includes("@");
+    
+    if (!isValid) {
+        displayError(emailInput, "Include @ symbol");
+    } else {
+        displayError(emailInput, "");
+    }
+    
+    return isValid;
+}
+
+// Function to validate role selection
+function validateRole() {
+    let roleInput = document.getElementById('role');
+    let isValid = roleInput.value !== ""; // Check if role is selected
+    
+    if (!isValid) {
+        displayError(roleInput, "Please select a role");
+    } else {
+        displayError(roleInput, "");
+    }
+    
+    return isValid;
+}
+
+// Function to validate password length
+function validatePassword() {
+    let passwordInput = document.getElementById('Enter_password');
+    let passwordValue = passwordInput.value.trim();
+    let isValid = passwordValue.length >= 8;
+    
+    if (!isValid) {
+        displayError(passwordInput, "Should be at least 6 characters long");
+    } else {
+        displayError(passwordInput, "");
+    }
+    
+    return isValid;
+}
+
+// Function to validate confirm password
+function validateConfirmPassword() {
+    let confirmPasswordInput = document.getElementById('Confirm_password');
+    let confirmPasswordValue = confirmPasswordInput.value.trim();
+    let passwordInput = document.getElementById('Enter_password').value.trim();
+    let isValid = confirmPasswordValue === passwordInput;
+    
+    if (!isValid) {
+        displayError(confirmPasswordInput, "Passwords do not match");
+    } else {
+        displayError(confirmPasswordInput, "");
+    }
+    
+    return isValid;
+}
+
+// Add event listeners for immediate feedback
+document.getElementById('Username').addEventListener("input", validateUsername);
+document.getElementById('Email').addEventListener("input", validateEmail);
+document.getElementById('role').addEventListener("change", validateRole); // Use change event for select
+document.getElementById('Enter_password').addEventListener("input", validatePassword);
+document.getElementById('Confirm_password').addEventListener("input", validateConfirmPassword);
+
+// Handle focus and blur events to clear errors on user interaction
+let inputs = document.querySelectorAll('.input-box input, .input-box select');
+inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+        displayError(input, "");
+    });
+    input.addEventListener('blur', function() {
+        if (input.value.trim() === "") {
+            displayError(input, ""); // Clear error on empty input
+        }
+    });
+});
+
+// Prevent form submission if there are validation errors
+document.getElementById('signup-form').addEventListener("submit", function(event) {
+    if (!validateUsername() || !validateEmail() || !validateRole() || !validatePassword() || !validateConfirmPassword()) {
+        event.preventDefault(); // Prevent form submission
+    }
+});
+</script>
+
+</body>
+</html>

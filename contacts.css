@@ -1,0 +1,374 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+body {
+    background-color: #e8f0fe ;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgb(199, 196, 196);
+}
+
+header .navbar {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .logo {
+    color: rgb(255, 115, 0);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navbar .logo span {
+    color: #c06b3e;
+}
+
+.navbar .menu-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.active {
+    color: #000;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #000;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.navbar a:hover {
+    color: rgb(255, 115, 0);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.user-info span {
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    text-align: center;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown a:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown.show {
+    display: block;
+}
+
+
+#menu-btn {
+    color: #000;
+    cursor: pointer;
+    display: none;
+}
+
+#close-menu-btn {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+footer{ 
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgb(0, 132, 255), rgb(128, 0, 117));
+    color: #fff;
+    padding: 80px 0 30px;
+    border-top-left-radius: 120px;
+    font-size: 16px;
+    line-height: 20px;
+}
+.row{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.col{
+    flex-basis: 25%;
+    padding:10px;
+}
+.col:nth-child(2), .col:nth-child(3){
+    flex-basis: 15%;
+}
+.col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+.email-id{
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+ul li{
+    list-style: none;
+    margin-bottom: 12px;
+   
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.col .soc-icon {
+    display: flex;
+}
+
+.col .fab{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+
+hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+.copyright{
+    text-align: center;
+}
+
+.underline{
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+.underline span{
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+@keyframes moving{
+    0%{
+        left: -20px;
+    }
+    100%{
+        left: 100%;
+    }
+}
+
+/* Mobile Menu Styles */
+@media screen and (max-width: 900px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    header.show-mobile-menu::before {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(5px);
+        z-index: -1;
+    }
+
+    #close-menu-btn, #menu-btn {
+        display: block;
+    }
+
+    .navbar .menu-links {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        flex-direction: column;
+        width: 260px;
+        height: 100vh;
+        background: #e8f0fe;
+        padding: 70px 40px 0;
+        transition: 0.15s ease;
+    }
+
+    header.show-mobile-menu .navbar .menu-links {
+        left: 0;
+    }
+
+    .navbar .menu-links li a {
+        color: #000;
+    }
+}
+
+
+.container .alert-success {
+    color: white;
+    height: 40px;
+    width: 400px;
+    font-size: medium;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(152, 224, 68);
+}
+
+.container .alert-error {
+    color: white;
+    height: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(248, 36, 36);
+}
+
+.contact{ 
+    width: 100%;
+	min-height: 100vh;
+	background-color: #e8f0fe;
+    padding: 20px;
+	margin-top: 68px;
+	text-align: center;
+}
+.container{
+	max-width: 800px;
+	margin: 0 auto;
+}
+.container h2{
+	font-size: 36px;
+	margin-bottom: 40px;
+	color: #333;
+}
+.contact-wrapper{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 30px;
+}
+.contact-form{
+	text-align: left;
+}
+.contact-form h3{
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #333;
+}
+.form-group{
+	margin-bottom: 20px;
+}
+input, textarea{
+	width: 100%;
+	padding: 12px;
+	border-radius: 8px;
+	border: none;
+	background-color: #fff;
+	color: #333;
+}
+input:focus,
+textarea:focus{
+	outline: none;
+	box-shadow: 0 0 8px #bbb;
+}
+button{
+	display: inline-block;
+	padding: 12px 24px;
+	background-color: #4caf50;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+button:hover{
+	background-color: #45a049;
+}
+.contact-info{
+	text-align: left;
+}
+.contact-info h3{
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: #333;
+}
+.contact-info p{
+	margin-bottom: 10px;
+	color: #555;
+}
+.contact-info i{
+	color: #4caf50;
+	margin-right: 10px;
+}
+@media screen and (max-width: 768px){
+	.container{
+		padding: 20px;
+	}
+	.contact-wrapper{
+		grid-template-columns: 1fr;
+}
+
+footer{
+    bottom: unset;
+}
+.col{
+    flex-basis: 100%;
+}
+.col:nth-child(2), .col:nth-child(3){
+    flex-basis: 100%;
+}
+}
